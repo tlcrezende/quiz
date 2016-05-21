@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160521231408) do
+ActiveRecord::Schema.define(version: 20160521234941) do
+
+  create_table "test_sets", force: :cascade do |t|
+    t.text     "description", limit: 65535
+    t.string   "video_url",   limit: 255
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
 
   create_table "tests", force: :cascade do |t|
     t.text     "description",  limit: 65535
@@ -24,6 +31,7 @@ ActiveRecord::Schema.define(version: 20160521231408) do
     t.integer  "video_id",     limit: 4
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.integer  "test_set_id",  limit: 4
   end
 
   add_index "tests", ["video_id"], name: "index_tests_on_video_id", using: :btree
