@@ -12,6 +12,16 @@ class VideosController < ApplicationController
   def show
   end
 
+  def example
+    @a = params
+    @video = Video.find(params[:description])
+    if params[:description].nil?
+      respond_to do |format|
+        format.json { render :json => @video.tests }
+      end
+    end
+  end
+
   # GET /videos/new
   def new
     @video = Video.new
