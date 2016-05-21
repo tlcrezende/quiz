@@ -8,6 +8,7 @@ one:
   alternative3: MyText
   alternative4: MyText
   answer: MyText
+  video_id: 
 
 two:
   description: MyText
@@ -17,3 +18,4 @@ two:
   alternative3: MyText
   alternative4: MyText
   answer: MyText
+  video_id: 
