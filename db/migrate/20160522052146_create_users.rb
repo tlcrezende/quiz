@@ -6,6 +6,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :access_token
       t.string :uid
       t.string :provider
+      t.references :test_set, index: true, foreign_key: true
 
       t.timestamps null: false
     end
