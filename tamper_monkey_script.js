@@ -22,10 +22,6 @@
         xmlHttp.send( null );
     }
 
-    function imprimir_resposta(response) {
-        alert("OIEEE");
-    }
-
     function change_score(test_set_id, score) {
         url = "https://192.168.65.182:3000/test_set/"+ test_set_id + "/score/" + score;
         httpPost(url, imprimir_resposta);
@@ -54,10 +50,6 @@
         return decodeURIComponent(results[2].replace(/\+/g, " "));
     }
 
-    function imprimir_resposta(response) {
-        alert(response);
-    }
-
     function get_test_set_json() {
         video_id = getParameterByName("v");
         url = "https://192.168.65.182:3000/test_set/api/" + video_id;
@@ -65,7 +57,6 @@
     }
 
     function get_response(json_string) {
-        alert(json_string);
         window.json = JSON.parse(json_string);
         var tests = window.json[0]["tests"];
         var size  = tests.length;
@@ -190,12 +181,10 @@
     }
 
     function buttonLike(){
-        playVideo();
         change_score(window.json[0]["id"], 10);
     }
 
     function buttonDislike(){
-        pauseVideo();
         change_score(window.json[0]["id"], -10);
     }
 
