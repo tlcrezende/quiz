@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :tests
-  resources :videos
+  resources :test_sets
+  resources :test_sets
+  resources :tests
   root 'principal#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

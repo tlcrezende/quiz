@@ -12,43 +12,40 @@
   <% end %>
 
   <div class="field">
-    <%= f.label "Descricao" %><br>
+    <%= f.label :description %><br>
     <%= f.text_area :description %>
   </div>
   <div class="field">
-    <%= f.label "Pergunta" %><br>
+    <%= f.label :question %><br>
     <%= f.text_area :question %>
   </div>
   <div class="field">
-    <%= f.label "Primeira Alternativa" %><br>
+    <%= f.label :alternative1 %><br>
     <%= f.text_area :alternative1 %>
   </div>
   <div class="field">
-    <%= f.label "Segunda Alternativa" %><br>
+    <%= f.label :alternative2 %><br>
     <%= f.text_area :alternative2 %>
   </div>
   <div class="field">
-    <%= f.label "Terceira Alternativa" %><br>
+    <%= f.label :alternative3 %><br>
     <%= f.text_area :alternative3 %>
   </div>
   <div class="field">
-    <%= f.label "Quarta Alternativa" %><br>
+    <%= f.label :alternative4 %><br>
     <%= f.text_area :alternative4 %>
   </div>
   <div class="field">
-    <%= f.label "Alternativa Correta" %><br>
-    <%= radio_button_tag(:answer, 0) %>
-    <%= label_tag(:answer_0, "Primeira") %>
-    <%= radio_button_tag(:answer, 1) %>
-    <%= label_tag(:answer_1, "Segunda") %>
-    <%= radio_button_tag(:answer, 2) %>
-    <%= label_tag(:answer_2, "Terceira") %>
-    <%= radio_button_tag(:answer, 3) %>
-    <%= label_tag(:answer_3, "Quarta") %>
+    <%= f.label :answer %><br>
+    <%= f.number_field :answer %>
   </div>
   <div class="field">
-    <%= f.label "Link pro video" %><br>
-    <%= f.text_field :video_id %>
+    <%= f.label :time %><br>
+    <%= f.time_select :time %>
+  </div>
+  <div class="field">
+    <%= f.label :test_set_id %><br>
+    <%= f.text_field :test_set_id %>
   </div>
   <div class="actions">
     <%= f.submit %>
