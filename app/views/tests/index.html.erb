@@ -29,7 +29,11 @@
         <td><%= test.alternative4 %></td>
         <td><%= test.answer %></td>
         <td><%= test.time.hour %>:<%= test.time.min %>:<%= test.time.sec %></td>
+        <% if test.test_set.nil? %>
+          nil
+        <% else %>
         <td><%= test.test_set.id %></td>
+        <% end %>
         <td><%= link_to 'Show', test %></td>
         <td><%= link_to 'Edit', edit_test_path(test) %></td>
         <td><%= link_to 'Destroy', test, method: :delete, data: { confirm: 'Are you sure?' } %></td>

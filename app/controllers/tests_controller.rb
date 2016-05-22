@@ -17,6 +17,7 @@ class TestsController < ApplicationController
     @a = params
     @test = Test.new
     @test.test_set_id = nil || @a['params_test_set_id']
+
   end
 
   # GET /tests/1/edit

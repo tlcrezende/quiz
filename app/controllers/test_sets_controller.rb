@@ -24,7 +24,13 @@ class TestSetsController < ApplicationController
   # POST /test_sets
   # POST /test_sets.json
   def create
-    @test_set = TestSet.new(test_set_params)
+
+    
+    tam = test_set_params["video_url"].size
+    params_int = test_set_params
+    params_int["video_url"] = test_set_params["video_url"][32..tam]
+    params_int["score"] = 0
+    @test_set = TestSet.new(params_int)
 
     respond_to do |format|
       if @test_set.save

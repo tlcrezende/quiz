@@ -12,7 +12,13 @@ Rails.application.routes.draw do
 
   get 'tests/new2/:params_test_set_id' => 'tests#new'
 
-  
+
+  # login facebook
+
+  get "/auth/:provider/callback" => "sessions#create", as: :auth_callback
+  get "/auth/failure" => "sessions#failure", as: :auth_failure
+  get "/logout" => "sessions#destroy", as: :logout
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
