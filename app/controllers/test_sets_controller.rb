@@ -24,7 +24,6 @@ class TestSetsController < ApplicationController
   # POST /test_sets
   # POST /test_sets.json
   def create
-
     
     tam = test_set_params["video_url"].size
     params_int = test_set_params
@@ -46,8 +45,13 @@ class TestSetsController < ApplicationController
   # PATCH/PUT /test_sets/1
   # PATCH/PUT /test_sets/1.json
   def update
+
+    tam = test_set_params["video_url"].size
+    params_int = test_set_params
+    params_int["video_url"] = test_set_params["video_url"][32..tam]
+    binding.pry
     respond_to do |format|
-      if @test_set.update(test_set_params)
+      if @test_set.update(params_int)
         format.html { redirect_to @test_set, notice: 'Test set was successfully updated.' }
         format.json { render :show, status: :ok, location: @test_set }
       else
