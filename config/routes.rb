@@ -9,7 +9,9 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
 
-  get 'example/:description' => 'videos#example'
+  get 'tests/new2/:params_test_set_id' => 'tests#new'
+
+  
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -14,7 +14,9 @@ class TestsController < ApplicationController
 
   # GET /tests/new
   def new
+    @a = params
     @test = Test.new
+    @test.test_set_id = nil || @a['params_test_set_id']
   end
 
   # GET /tests/1/edit
@@ -28,7 +30,7 @@ class TestsController < ApplicationController
 
     respond_to do |format|
       if @test.save
-        format.html { redirect_to @test, notice: 'Test was successfully created.' }
+        format.html { redirect_to "/test_sets/#{@test.test_set_id}" , notice: 'Test was successfully created.' }
         format.json { render :show, status: :created, location: @test }
       else
         format.html { render :new }

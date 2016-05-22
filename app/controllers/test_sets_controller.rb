@@ -1,5 +1,5 @@
 class TestSetsController < ApplicationController
-  before_action :set_test_set, only: [:show, :edit, :update, :destroy]
+  before_action :set_test_set, only: [:new2, :show, :edit, :update, :destroy]
 
   # GET /test_sets
   # GET /test_sets.json
