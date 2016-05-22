@@ -198,7 +198,7 @@
     }
 
     function wrongAnswer() {
-        alert('wrong answer');
+        alert('Resposta Errada');
     }
 
     function continuePlayback(){
