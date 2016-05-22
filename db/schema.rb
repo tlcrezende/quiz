@@ -42,9 +42,13 @@ ActiveRecord::Schema.define(version: 20160522052146) do
     t.string   "access_token", limit: 255
     t.string   "uid",          limit: 255
     t.string   "provider",     limit: 255
+    t.integer  "test_set_id",  limit: 4
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
   end
 
+  add_index "users", ["test_set_id"], name: "index_users_on_test_set_id", using: :btree
+
   add_foreign_key "tests", "test_sets"
+  add_foreign_key "users", "test_sets"
 end

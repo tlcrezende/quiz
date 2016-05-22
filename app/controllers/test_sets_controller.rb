@@ -33,7 +33,7 @@ class TestSetsController < ApplicationController
 
     respond_to do |format|
       if @test_set.save
-        format.html { redirect_to @test_set, notice: 'Test set was successfully created.' }
+        format.html { redirect_to @test_set, notice: 'O Quiz foi adicionado com sucesso.' }
         format.json { render :show, status: :created, location: @test_set }
       else
         format.html { render :new }
@@ -49,10 +49,9 @@ class TestSetsController < ApplicationController
     tam = test_set_params["video_url"].size
     params_int = test_set_params
     params_int["video_url"] = test_set_params["video_url"][32..tam]
-    binding.pry
     respond_to do |format|
       if @test_set.update(params_int)
-        format.html { redirect_to @test_set, notice: 'Test set was successfully updated.' }
+        format.html { redirect_to @test_set, notice: 'O Quiz foi atualizado com sucesso.' }
         format.json { render :show, status: :ok, location: @test_set }
       else
         format.html { render :edit }
@@ -66,7 +65,7 @@ class TestSetsController < ApplicationController
   def destroy
     @test_set.destroy
     respond_to do |format|
-      format.html { redirect_to test_sets_url, notice: 'Test set was successfully destroyed.' }
+      format.html { redirect_to test_sets_url, notice: 'O Quiz foi removido com sucesso.' }
       format.json { head :no_content }
     end
   end
