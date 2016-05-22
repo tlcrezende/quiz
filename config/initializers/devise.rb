@@ -1,0 +1,1 @@
+#config.omniauth :facebook, "1188649934501179", "caf547782bcd55d83d16358441674bcb"

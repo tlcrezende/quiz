@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160522011531) do
+ActiveRecord::Schema.define(version: 20160522052146) do
 
   create_table "test_sets", force: :cascade do |t|
     t.text     "description", limit: 65535
@@ -22,7 +22,6 @@ ActiveRecord::Schema.define(version: 20160522011531) do
   end
 
   create_table "tests", force: :cascade do |t|
-    t.text     "description",  limit: 65535
     t.text     "question",     limit: 65535
     t.text     "alternative1", limit: 65535
     t.text     "alternative2", limit: 65535
@@ -36,6 +35,16 @@ ActiveRecord::Schema.define(version: 20160522011531) do
   end
 
   add_index "tests", ["test_set_id"], name: "index_tests_on_test_set_id", using: :btree
+
+  create_table "users", force: :cascade do |t|
+    t.string   "name",         limit: 255
+    t.string   "email",        limit: 255
+    t.string   "access_token", limit: 255
+    t.string   "uid",          limit: 255
+    t.string   "provider",     limit: 255
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
 
   add_foreign_key "tests", "test_sets"
 end
