@@ -47,7 +47,7 @@
     <%= f.time_select :time, {},{class: 'btn btn-default '}%>
   </div>
 
-  <% if @a['params_test_set_id'].nil? %>
+  <% if @test.test_set_id.nil? %>
   <div class="field">
     <%= f.label :test_set_id %><br>
     <%= f.text_field :test_set_id %>
@@ -55,7 +55,7 @@
 
   <% else %>
    <div class="field">
-    <%= f.hidden_field :test_set_id, value:@a['params_test_set_id'] %>
+    <%= f.hidden_field :test_set_id, value:@test.test_set_id %>
   </div>
   <% end %>
 
