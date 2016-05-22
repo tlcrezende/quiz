@@ -2,6 +2,10 @@
 
 one:
   description: MyText
+  video_url: MyString
+  score: 1
 
 two:
   description: MyText
+  video_url: MyString
+  score: 1

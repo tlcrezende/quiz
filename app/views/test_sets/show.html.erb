@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @test_set.description %>
+</p>
+
+<p>
+  <strong>Video url:</strong>
+  <%= @test_set.video_url %>
+</p>
+
+<p>
+  <strong>Score:</strong>
+  <%= @test_set.score %>
+</p>
+
+<p>
+Tem quantos tests: <%= @test_set.test_ids.count %>
+</p>
+
+<%= @test_set.id %>
+
+<p>
+<%= link_to 'Create new test to this test_set', "/tests/new2/#{@test_set.id}
+" %> |
+<%= link_to 'Edit', edit_test_set_path(@test_set) %> |
+<%= link_to 'Back', test_sets_path %>
+</p>

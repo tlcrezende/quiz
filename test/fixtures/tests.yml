@@ -7,8 +7,9 @@ one:
   alternative2: MyText
   alternative3: MyText
   alternative4: MyText
-  answer: MyText
-  video_id: 
+  answer: 1
+  time: 2016-05-21 22:15:31
+  test_set_id: 
 
 two:
   description: MyText
@@ -17,5 +18,6 @@ two:
   alternative2: MyText
   alternative3: MyText
   alternative4: MyText
-  answer: MyText
-  video_id: 
+  answer: 1
+  time: 2016-05-21 22:15:31
+  test_set_id: 
