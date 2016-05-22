@@ -12,18 +12,14 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
+    <%= f.label "Descricao do seu quiz" %><br>
+    <%= f.text_area :description, size: "100x10", class: 'form-control' %>
   </div>
   <div class="field">
-    <%= f.label :video_url %><br>
-    <%= f.text_field :video_url %>
-  </div>
-  <div class="field">
-    <%= f.label :score %><br>
-    <%= f.number_field :score %>
+    <%= f.label "Link pro video do youtube" %><br>
+    <%= f.text_field :video_url, class: 'form-control' %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'ENVIAR', class: 'btn btn-default btn-lg'%>
   </div>
 <% end %>
