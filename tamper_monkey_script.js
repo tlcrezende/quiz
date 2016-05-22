@@ -66,8 +66,8 @@
 
     function get_response(json_string) {
         alert(json_string);
-        json = JSON.parse(json_string);
-        var tests = json[0]["tests"];
+        window.json = JSON.parse(json_string);
+        var tests = window.json[0]["tests"];
         var size  = tests.length;
 
         var questions = [];
@@ -190,11 +190,13 @@
     }
 
     function buttonLike(){
-        change_score(json[0]["id"], 1);
+        playVideo();
+        change_score(window.json[0]["id"], 10);
     }
 
     function buttonDislike(){
-        change_score(json[0]["id"], -1);
+        pauseVideo();
+        change_score(window.json[0]["id"], -10);
     }
 
     function checkAnswer(){
