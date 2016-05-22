@@ -11,6 +11,27 @@
 // ==/UserScript==
 
 (function() {
+    function httpPost(url, callback)
+    {
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.onreadystatechange = function() {
+            if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+                callback(xmlHttp.responseText);
+        };
+        xmlHttp.open( "POST", url, true);
+        xmlHttp.send( null );
+    }
+
+    function imprimir_resposta(response) {
+        alert("OIEEE");
+    }
+
+    function change_score(test_set_id, score) {
+        url = "https://192.168.65.182:3000/test_set/"+ test_set_id + "/score/" + score;
+        httpPost(url, imprimir_resposta);
+    }
+
+
     function httpGet(url, callback)
     {
         var xmlHttp = new XMLHttpRequest();
@@ -105,6 +126,30 @@
     div = document.getElementsByClassName('player-api player-width player-height')[0];
     div.appendChild(iframe);
 
+    div = document.getElementsByClassName('like-button-renderer actionable')[0];
+
+    var like = document.createElement('like');
+    div.appendChild(like);
+    like.style.backgroundColor = '#1b9e1f';
+    like.style.width = '100px';
+    like.style.height = '100px';
+    like.style.position = 'absolute';
+    like.style.top = '50px';
+    like.style.left = '550px';
+    like.onclick = buttonLike;
+    like.style.zIndex = 1000;
+
+    var dislike = document.createElement('dislike');
+    div.appendChild(dislike);
+    dislike.style.backgroundColor = '#c30808';
+    dislike.style.width = '100px';
+    dislike.style.height = '100px';
+    dislike.style.position = 'absolute';
+    dislike.style.top = '50px';
+    dislike.style.left = '740px';
+    dislike.onclick = buttonDislike;
+    dislike.style.zIndex = 1000;
+
     iframe.style.backgroundColor = "white";
     iframe.style.position = "absolute";
     iframe.style.zIndex = 100;
@@ -144,8 +189,12 @@
         }
     }
 
-    function atLeastOneRadio() {
-        return ($('input[type=radio]:checked').size() > 0);
+    function buttonLike(){
+        change_score(json[0]["id"], 1);
+    }
+
+    function buttonDislike(){
+        change_score(json[0]["id"], -1);
     }
 
     function checkAnswer(){
