@@ -2,6 +2,8 @@
 
 one:
   description: MyText
+  video_url: MyString
 
 two:
   description: MyText
+  video_url: MyString
