@@ -1,3 +1,3 @@
 class TestSet < ActiveRecord::Base
-	has_many :tests
+  has_many :tests
 end
