@@ -12,35 +12,42 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :description %><br>
+    <%= f.label "Descricao" %><br>
     <%= f.text_area :description %>
   </div>
   <div class="field">
-    <%= f.label :question %><br>
+    <%= f.label "Pergunta" %><br>
     <%= f.text_area :question %>
   </div>
   <div class="field">
-    <%= f.label :alternative1 %><br>
+    <%= f.label "Primeira Alternativa" %><br>
     <%= f.text_area :alternative1 %>
   </div>
   <div class="field">
-    <%= f.label :alternative2 %><br>
+    <%= f.label "Segunda Alternativa" %><br>
     <%= f.text_area :alternative2 %>
   </div>
   <div class="field">
-    <%= f.label :alternative3 %><br>
+    <%= f.label "Terceira Alternativa" %><br>
     <%= f.text_area :alternative3 %>
   </div>
   <div class="field">
-    <%= f.label :alternative4 %><br>
+    <%= f.label "Quarta Alternativa" %><br>
     <%= f.text_area :alternative4 %>
   </div>
   <div class="field">
-    <%= f.label :answer %><br>
-    <%= f.text_area :answer %>
+    <%= f.label "Alternativa Correta" %><br>
+    <%= radio_button_tag(:answer, 0) %>
+    <%= label_tag(:answer_0, "Primeira") %>
+    <%= radio_button_tag(:answer, 1) %>
+    <%= label_tag(:answer_1, "Segunda") %>
+    <%= radio_button_tag(:answer, 2) %>
+    <%= label_tag(:answer_2, "Terceira") %>
+    <%= radio_button_tag(:answer, 3) %>
+    <%= label_tag(:answer_3, "Quarta") %>
   </div>
   <div class="field">
-    <%= f.label :video_id %><br>
+    <%= f.label "Link pro video" %><br>
     <%= f.text_field :video_id %>
   </div>
   <div class="actions">
