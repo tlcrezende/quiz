@@ -1,43 +1,81 @@
-<p id="notice"><%= notice %></p>
+<head>
 
-<h1>Listing Tests</h1>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-<table>
-  <thead>
-    <tr>
-      <th>Description</th>
-      <th>Question</th>
-      <th>Alternative1</th>
-      <th>Alternative2</th>
-      <th>Alternative3</th>
-      <th>Alternative4</th>
-      <th>Answer</th>
-      <th>Time</th>
-      <th>Test set id</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <title>Youtube Quiz</title>
 
-  <tbody>
-    <% @tests.each do |test| %>
-      <tr>
-        <td><%= test.description %></td>
-        <td><%= test.question %></td>
-        <td><%= test.alternative1 %></td>
-        <td><%= test.alternative2 %></td>
-        <td><%= test.alternative3 %></td>
-        <td><%= test.alternative4 %></td>
-        <td><%= test.answer %></td>
-        <td><%= test.time.hour %>:<%= test.time.min %>:<%= test.time.sec %></td>
-        <td><%= test.test_set.id %></td>
-        <td><%= link_to 'Show', test %></td>
-        <td><%= link_to 'Edit', edit_test_path(test) %></td>
-        <td><%= link_to 'Destroy', test, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <!-- Bootstrap Core CSS -->
+  <link href="../assets/bootstrap.min.css" rel="stylesheet">
 
-<br>
+  <!-- Custom CSS -->
+  <link href="../assets/grayscale.css" rel="stylesheet">
 
-<%= link_to 'New Test', new_test_path %>
+  <!-- Custom Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+</head>
+
+<header class="intro">
+  <div class="intro-body">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2"><body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top"
+
+
+
+
+
+
+          <p id="notice"><%= notice %></p>
+
+          <h1>Perguntas</h1>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Resposta</th>
+                <th>Tempo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @tests.each do |test| %>
+                <tr>
+<style type="text/css">
+td
+{
+    padding:0 20px 0 20px;
+}
+</style>
+
+
+                  <td><%= test.answer %></td>
+                  <td><%= test.time.hour %>:<%= test.time.min %>:<%= test.time.sec %></td>
+                  <td><%= link_to 'Editar',  "/test_set/#{@test_set.id}/tests/#{test.id}/edit"%></td>
+                  <td><%= link_to 'Remover', test, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+
+          <br>
+
+          <%= link_to 'Nova pergunta',"/test_set/#{@test_set.id}/tests/new" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+        </body>

@@ -52,13 +52,14 @@
           </p>
 
           <p>
-            Tem quantas perguntas: <%= @test_set.test_ids.count %>
+             Numero de perguntas: <%= @test_set.test_ids.count %>
           </p>
 
           <p>
             <%= link_to 'Criar nova pergunta para esse quiz', "/tests/new2/#{@test_set.id}
 " %> |
             <%= link_to 'Editar esse quiz', edit_test_set_path(@test_set) %> |
+            <%= link_to 'Perguntas', "/test_set/#{@test_set.id}/tests" %> |
             <%= link_to 'Voltar', "/" %>
           </p>
 
