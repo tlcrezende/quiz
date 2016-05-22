@@ -4,13 +4,18 @@ Rails.application.routes.draw do
   resources :test_sets
   resources :tests
   root 'principal#index'
-  get '/test_set/:video_url', to: 'api#find_test_set_from_video'
+  get '/test_set/api/:video_url', to: 'api#find_test_set_from_video'
+  get '/test_set/:test_set_id/tests', to: 'tests#show_tests_for_set'
+  get '/test_set/:test_set_id/tests/new', to: 'tests#new'
+  get '/test_set/:test_set_id/tests/:test_id/', to: 'tests#show'
+  get '/test_set/:test_set_id/tests/:test_id/edit', to: 'tests#edit'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
 
   get 'tests/new2/:params_test_set_id' => 'tests#new'
+
 
 
   # login facebook
