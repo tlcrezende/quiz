@@ -1,34 +1,88 @@
-<p id="notice"><%= notice %></p>
+  <head>
 
-<h1>Listing Test Sets</h1>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-<table>
-  <thead>
-    <tr>
-      <th>Description</th>
-      <th>Video url</th>
-      <th>Score</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <title>Youtube Quizzes</title>
 
-  <tbody>
-    <% @test_sets.each do |test_set| %>
-      <tr>
-        <td><%= test_set.description %></td>
-        <td><%= test_set.video_url %></td>
-        <td><%= test_set.score %></td>
-        <td><%= link_to 'Show', test_set %></td>
-        <td><%= link_to 'Edit', edit_test_set_path(test_set) %></td>
-        <td><%= link_to 'Destroy', test_set, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <!-- Bootstrap Core CSS -->
+    <link href="../assets/bootstrap.min.css" rel="stylesheet">
 
-<br>
+    <!-- Custom CSS -->
+    <link href="../assets/grayscale.css" rel="stylesheet">
 
-<%= link_to 'New Test set', new_test_set_path %>
+    <!-- Custom Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+  </head>
+
+  <header class="intro">
+    <div class="intro-body">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2"><body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top"
+
+            <p id="notice"><%= notice %></p>
+
+            <h1>Youtube Quizzes</h1>
+
+            <table>
+              <thead>
+                <tr>
+                  <th><h5>Descrição</h5></th>
+                  <th><h5>Youtube</h5></th>
+                  <th><h5>Pontuação</h5></th>
+                  <th colspan="3"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @test_sets.each do |test_set| %>
+        <tr>
+  <style type="text/css">
+  td
+  {
+      padding:0 50px 0 50px;
+  }
+  </style>
+
+                    <td><%= test_set.description %></td>
+                    <td><%= link_to 'Link', "https://www.youtube.com/watch?v=#{test_set.video_url}" %> </td>
+                    <td><%= test_set.score %></td>
+                    <td><%= link_to 'Show', test_set %></td>
+                    <td><%= link_to 'Edit', edit_test_set_path(test_set) %></td>
+                    <td><%= link_to 'Destroy', test_set, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+
+            <br>
+
+          <%= link_to 'Adicionar novo Quiz', new_test_set_path %> | <br>
+          <%= link_to 'Pagina Principal', root_path %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+          </body>
 
 
-<%= link_to "Login com Facebook", "/auth/facebook" %>
+      
+
+
+
+
+
