@@ -1,7 +1,19 @@
--- Welcome to Quizlandia! --
+-- Welcome to Quizlandia! -- <br>
+
+
+<iframe width="560" height="315" src="//www.youtube.com/embed/DokUjuZmpCE" frameborder="0" allowfullscreen></iframe> 
+
+
 
 <ul>
 <%= link_to 'db quiz' ,  tests_path %>
 <br><br>
 <%= link_to 'db video' ,  videos_path %>
 </ul>
+
+<% file = File.read('/home/thiago/quiz/app/views/welcome/p.json') %>
+<% data_hash = JSON.parse(file) %>
+<%= data_hash['title'] %>
+<%= data_hash['url'] %>
+<%= data_hash['posts']['1'] %>
+<%= data_hash['posts']['2'] %>

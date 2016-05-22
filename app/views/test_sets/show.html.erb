@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @test_set.description %>
+</p>
+
+<p>
+  <strong>Video url:</strong>
+  <%= @test_set.video_url %>
+</p>
+
+<p>
+  <strong>Score:</strong>
+  <%= @test_set.score %>
+</p>
+
+<%= link_to 'Edit', edit_test_set_path(@test_set) %> |
+<%= link_to 'Back', test_sets_path %>

@@ -3,6 +3,7 @@ class CreateTestSets < ActiveRecord::Migration
     create_table :test_sets do |t|
       t.text :description
       t.string :video_url
+      t.integer :score
 
       t.timestamps null: false
     end

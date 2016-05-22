@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
   resources :tests
+  resources :test_sets
+  resources :test_sets
+  resources :tests
   root 'principal#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
+
+  get 'example/:description' => 'videos#example'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

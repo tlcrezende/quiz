@@ -7,8 +7,9 @@ class CreateTests < ActiveRecord::Migration
       t.text :alternative2
       t.text :alternative3
       t.text :alternative4
-      t.text :answer
-      t.references :video, index: true, foreign_key: true
+      t.integer :answer
+      t.time :time
+      t.references :test_set, index: true, foreign_key: true
 
       t.timestamps null: false
     end
