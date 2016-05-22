@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   get "/auth/:provider/callback" => "sessions#create", as: :auth_callback
   get "/auth/failure" => "sessions#failure", as: :auth_failure
   get "/logout" => "sessions#destroy", as: :logout
-
+  get "/login/:params" =>'sessions#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
