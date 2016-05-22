@@ -3,6 +3,8 @@ class SessionsController < ApplicationController
       auth = request.env["omniauth.auth"]
       user = User.find_or_create_with_omniauth(auth)
       session[:user_id] = user.id
+      @b = user.name
+      binding.pry
       redirect_to root_path, :notice => "Opa! Você está online!"
     end
 
