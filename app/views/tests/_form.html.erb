@@ -44,7 +44,7 @@
   </div>
   <div class="field">
     <%= f.label "Tempo de inicio da questao" %><br>
-    <%= f.time_select :time, {},{class: 'btn btn-default '}%>
+    <%= f.time_select :time,  {include_seconds: true}, {class: 'btn btn-default'} %>
   </div>
 
   <% if @test.test_set_id.nil? %>
