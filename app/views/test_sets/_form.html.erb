@@ -1,0 +1,25 @@
+<%= form_for(@test_set) do |f| %>
+  <% if @test_set.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@test_set.errors.count, "error") %> prohibited this test_set from being saved:</h2>
+
+      <ul>
+      <% @test_set.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label "Descricao do seu quiz" %><br>
+    <%= f.text_area :description, size: "100x10", class: 'form-control' %>
+  </div>
+  <div class="field">
+    <%= f.label "Link pro video do youtube" %><br>
+    <%= f.text_field :video_url, class: 'form-control' %>
+  </div>
+  <div class="actions">
+    <%= f.submit 'ENVIAR', class: 'btn btn-default btn-lg'%>
+  </div>
+<% end %>

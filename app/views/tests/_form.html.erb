@@ -12,38 +12,54 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
+    <%= f.label "Pergunta" %><br>
+    <%= f.text_area :question, class: 'form-control'  %>
   </div>
   <div class="field">
-    <%= f.label :question %><br>
-    <%= f.text_area :question %>
+    <%= f.label "Primeira Alternativa" %><br>
+    <%= f.text_area :alternative1, class: 'form-control'  %>
   </div>
   <div class="field">
-    <%= f.label :alternative1 %><br>
-    <%= f.text_area :alternative1 %>
+    <%= f.label "Segunda Alternativa" %><br>
+    <%= f.text_area :alternative2, class: 'form-control'  %>
   </div>
   <div class="field">
-    <%= f.label :alternative2 %><br>
-    <%= f.text_area :alternative2 %>
+    <%= f.label "Terceira Alternativa" %><br>
+    <%= f.text_area :alternative3, class: 'form-control'  %>
   </div>
   <div class="field">
-    <%= f.label :alternative3 %><br>
-    <%= f.text_area :alternative3 %>
+    <%= f.label "Quarta Alternativa" %><br>
+    <%= f.text_area :alternative4, class: 'form-control'  %>
   </div>
   <div class="field">
-    <%= f.label :alternative4 %><br>
-    <%= f.text_area :alternative4 %>
+    <%= f.label "Alternativa correta" %><br>
+    <%= f.label :answer, "Primeira", :value => 1  %>
+    <%= f.radio_button :answer, 1 %>
+    <%= f.label :answer, "Segunda", :value => 2 %>
+    <%= f.radio_button :answer, 2 %>
+    <%= f.label :answer, "Terceira", :value => 3 %>
+    <%= f.radio_button :answer, 3 %>
+    <%= f.label :answer, "Quarta", :value => 4 %>
+    <%= f.radio_button :answer, 4 %>
   </div>
   <div class="field">
-    <%= f.label :answer %><br>
-    <%= f.text_area :answer %>
+    <%= f.label "Tempo de inicio da questao" %><br>
+    <%= f.time_select :time,  {include_seconds: true}, {class: 'btn btn-default'} %>
   </div>
+
+  <% if @test.test_set_id.nil? %>
   <div class="field">
-    <%= f.label :video_id %><br>
-    <%= f.text_field :video_id %>
+    <%= f.label :test_set_id %><br>
+    <%= f.text_field :test_set_id %>
   </div>
+
+  <% else %>
+   <div class="field">
+    <%= f.hidden_field :test_set_id, value:@test.test_set_id %>
+  </div>
+  <% end %>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'ENVIAR', class: 'btn btn-default btn-lg'%>
   </div>
 <% end %>

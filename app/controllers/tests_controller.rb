@@ -1,5 +1,6 @@
 class TestsController < ApplicationController
   before_action :set_test, only: [:show, :edit, :update, :destroy]
+  before_filter :find_test_set
 
   # GET /tests
   # GET /tests.json
@@ -12,9 +13,18 @@ class TestsController < ApplicationController
   def show
   end
 
+  def show_tests_for_set
+    @tests = Test.where(test_set_id: params[:test_set_id])
+    render  template: "tests/index"
+  end
+
   # GET /tests/new
   def new
+    @a = params
     @test = Test.new
+
+    @test.test_set_id = nil || @a['params_test_set_id'] || @a['test_set_id']
+
   end
 
   # GET /tests/1/edit
@@ -28,7 +38,7 @@ class TestsController < ApplicationController
 
     respond_to do |format|
       if @test.save
-        format.html { redirect_to @test, notice: 'Test was successfully created.' }
+        format.html { redirect_to "/test_sets/#{@test.test_set_id}" , notice: 'Test was successfully created.' }
         format.json { render :show, status: :created, location: @test }
       else
         format.html { render :new }
@@ -42,7 +52,7 @@ class TestsController < ApplicationController
   def update
     respond_to do |format|
       if @test.update(test_params)
-        format.html { redirect_to @test, notice: 'Test was successfully updated.' }
+        format.html { redirect_to :back, notice: 'Test was successfully updated.' }
         format.json { render :show, status: :ok, location: @test }
       else
         format.html { render :edit }
@@ -56,7 +66,7 @@ class TestsController < ApplicationController
   def destroy
     @test.destroy
     respond_to do |format|
-      format.html { redirect_to tests_url, notice: 'Test was successfully destroyed.' }
+      format.html { redirect_to :back, notice: 'Test was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -64,11 +74,17 @@ class TestsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_test
-      @test = Test.find(params[:id])
+      id = params[:id] || params[:test_id]
+      @test = Test.find(id)
+    end
+
+    def find_test_set
+      return unless params[:test_set_id]
+      @test_set = TestSet.find(params[:test_set_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def test_params
-      params.require(:test).permit(:description, :question, :alternative1, :alternative2, :alternative3, :alternative4, :answer, :video_id)
+      params.require(:test).permit(:description, :question, :alternative1, :alternative2, :alternative3, :alternative4, :answer, :time, :test_set_id)
     end
 end

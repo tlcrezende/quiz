@@ -11,28 +11,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160521205157) do
+ActiveRecord::Schema.define(version: 20160522052146) do
+
+  create_table "test_sets", force: :cascade do |t|
+    t.text     "description", limit: 65535
+    t.string   "video_url",   limit: 255
+    t.integer  "score",       limit: 4
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
 
   create_table "tests", force: :cascade do |t|
-    t.text     "description",  limit: 65535
     t.text     "question",     limit: 65535
     t.text     "alternative1", limit: 65535
     t.text     "alternative2", limit: 65535
     t.text     "alternative3", limit: 65535
     t.text     "alternative4", limit: 65535
-    t.text     "answer",       limit: 65535
-    t.integer  "video_id",     limit: 4
+    t.integer  "answer",       limit: 4
+    t.time     "time"
+    t.integer  "test_set_id",  limit: 4
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
   end
 
-  add_index "tests", ["video_id"], name: "index_tests_on_video_id", using: :btree
+  add_index "tests", ["test_set_id"], name: "index_tests_on_test_set_id", using: :btree
 
-  create_table "videos", force: :cascade do |t|
-    t.text     "description", limit: 65535
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+  create_table "users", force: :cascade do |t|
+    t.string   "name",         limit: 255
+    t.string   "email",        limit: 255
+    t.string   "access_token", limit: 255
+    t.string   "uid",          limit: 255
+    t.string   "provider",     limit: 255
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
-  add_foreign_key "tests", "videos"
+  add_foreign_key "tests", "test_sets"
 end

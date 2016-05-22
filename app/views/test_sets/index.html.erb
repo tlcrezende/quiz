@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Test Sets</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Video url</th>
+      <th>Score</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @test_sets.each do |test_set| %>
+      <tr>
+        <td><%= test_set.description %></td>
+        <td><%= test_set.video_url %></td>
+        <td><%= test_set.score %></td>
+        <td><%= link_to 'Show', test_set %></td>
+        <td><%= link_to 'Edit', edit_test_set_path(test_set) %></td>
+        <td><%= link_to 'Destroy', test_set, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Test set', new_test_set_path %>
+
+
+<%= link_to "Login com Facebook", "/auth/facebook" %>

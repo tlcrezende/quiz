@@ -36,9 +36,15 @@
 </p>
 
 <p>
-  <strong>Video:</strong>
-  <%= @test.video %>
+  <strong>Time:</strong>
+  <%= @test.time %>
 </p>
 
+<p>
+  <strong>Test set:</strong>
+  <%= @test.test_set %>
+</p>
+
+<%= link_to 'Criar nova pergunta', "/test_set/#{@test_set.id}/tests/new" %> |
 <%= link_to 'Edit', edit_test_path(@test) %> |
 <%= link_to 'Back', tests_path %>
